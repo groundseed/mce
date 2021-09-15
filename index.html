@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>MCE</title>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div style="height: 300px;"></div>
+        <div class="card mx-auto" style="width: 41rem;">
+            <div class="card-body">
+              <h5 class="card-title">MCE</h5>
+              <h6 class="card-subtitle mb-2 text-muted">By @natokoa</h6>
+              <p class="card-text">MCE allows you to install Chrome Extensions purely with IDs.<br>Format for versions: <i>00.0.0000.000</i></p>
+              <div class="input-group flex-nowrap">
+                <input id="chrmVer" type="text" class="form-control" placeholder="Chrome Version" aria-label="chrome version" aria-describedby="addon-wrapping">
+              </div>
+              <div style="height: 5px;"></div>
+              <div class="input-group flex-nowrap">
+                <input id="exteID" type="text" class="form-control" placeholder="Extension ID" aria-label="extension ID" aria-describedby="addon-wrapping">
+              </div>
+              <div style="height: 5px;"></div>
+              <button id="submitQuery" type="button" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+          <script>
+              document.getElementById("submitQuery").onclick = function () { 
+                  var chrome = document.getElementById("chrmVer").value;
+                  var extension = document.getElementById("exteID").value;
+                  var final = ("https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion=" + chrome + "&x=id%3D" + extension + "%26installsource%3Dondemand%26uc");
+                  window.alert(final)
+                  window.location.href = final;
+                };
+          </script>
+    </body>
+</html>
